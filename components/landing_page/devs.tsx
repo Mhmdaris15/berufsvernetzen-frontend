@@ -64,7 +64,7 @@ const Devs = (props: Props) => {
             height={80}
             className="rounded-full mb-4"
             />
-            <h3 className="text-white font-semibold">Developer 2</h3>
+            <h3 className="text-white font-semibold">Mila Nabila</h3>
             <p className="text-white">Network Engineer</p>
             <p className="text-white">PT. CIGS Indonesia Digital</p>
           </Link>
