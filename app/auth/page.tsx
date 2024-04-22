@@ -2,6 +2,7 @@
 
 import React from "react";
 import LoginBackground from "@/public/login-page-background.jpg";
+import Logo from "@/public/Berufsvernetzen_Icon-removebg-preview.png";
 import Image from "next/image";
 import * as Yup from "yup";
 import { useFormik } from "formik";
@@ -16,6 +17,7 @@ import {
 } from "@nextui-org/react";
 import toast from "react-hot-toast";
 import { useRouter } from "next/navigation";
+import { motion } from "framer-motion";
 
 type Props = {};
 
@@ -83,9 +85,27 @@ function AuthPage({}: Props) {
 
   return (
     <div className="min-h-screen flex flex-col md:flex-row">
-      <div className="basis-1/3 bg-gradient-to-r from-blue-800 to-indigo-900 flex items-center justify-center">
-        <div className="max-w-md w-full mx-auto px-4">
-          <Card className="max-w-full w-[340px] h-fit">
+      <div className="basis-1/3 bg-gradient-to-r from-blue-800 to-indigo-900 flex flex-col items-center justify-center gap-5">
+      <Image src={Logo} alt="Login Background" width={200} height={200} />
+       <motion.span
+          initial={{ x: -500, opacity: 0.5 }}
+          animate={{ x: 0, opacity: 1 }}
+          transition={{ delay: 0.8 }}
+       className="flex flex-col items-center justify-center gap-1">
+       <h1 className="text-white text-4xl font-bold text-center">
+          Berufsvernetzen
+        </h1>
+        <p className="text-sm text-center font-semibold">
+          Connect with your school and alumni. <br />
+          Looking for a job? We got you covered.
+        </p>
+       </motion.span>
+        <motion.div
+          initial={{ y: 500, opacity: 0.5 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ delay: 0.5 }}
+        className="max-w-md w-full mx-auto">
+          <Card className="max-w-full h-fit">
             <CardBody className="overflow-hidden">
               <Tabs
                 fullWidth
@@ -213,16 +233,17 @@ function AuthPage({}: Props) {
               </Tabs>
             </CardBody>
           </Card>
-        </div>
+        </motion.div>
       </div>
       <div className="hidden md:flex flex-1 bg-gray-200 bg-cover bg-center relative">
-        <div className="absolute inset-0 bg-black opacity-25"></div>
         <div className="absolute inset-0 flex items-center justify-center">
+        <div className="absolute inset-0 bg-black opacity-50"></div>
           <Image
             src={LoginBackground}
             alt="Login Background"
             className="object-cover object-center w-full h-full"
           />
+          {/* Add  */}
         </div>
       </div>
     </div>

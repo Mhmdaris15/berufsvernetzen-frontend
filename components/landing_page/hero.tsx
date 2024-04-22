@@ -56,17 +56,14 @@ export default function Hero() {
               variant="dot"
               color="default"
             >
-              NextUI template its here!
+              All Alumni connected here!
             </Chip>
             <h1 className="text-4xl font-extrabold mx-auto md:text-5xl bg-gradient-to-b from-foreground to-foreground/70 text-transparent bg-clip-text">
-              Use Nextjs and{" "}
-              <span className="bg-gradient-to-t from-light to-foreground text-transparent bg-clip-text border-none">
-                NextUI
-              </span>{" "}
-              to build your website
-            </h1>
+              Use Berufsvernetzen to help School Instance connect with Alumni.             
+              
+              </h1>
             <p className="max-w-2xl mx-auto text-foreground/80">
-              Create your website with NextUI and Nextjs, the best UI Framework.
+              Berufsvernetzen is a platform that helps schools connect with their Alumni. It is a platform that helps schools to reach out to their Alumni and get them connected to their school.
             </p>
             <div className="items-center justify-center gap-x-3 space-y-3 sm:flex sm:space-y-0">
               <motion.div whileHover={{ scale: 1.05 }}>
