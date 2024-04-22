@@ -46,8 +46,10 @@ export default function NavBar() {
           </span>
         </NavbarBrand>
         <NavbarItem>
-          <Button as={Link} variant="light">
-            docs
+          <Button as={Link} variant="light"
+          href="https://meili.mhmdaris15.tech/"
+          >
+            Jobs
           </Button>
         </NavbarItem>
         <NavbarItem>
@@ -103,8 +105,13 @@ export default function NavBar() {
           </Dropdown>
         </NavbarItem>
         <NavbarItem>
-          <Button as={Link} variant="light">
-            blog
+          <Button as={Link} variant="light" href="/dashboard">
+            Dashboard
+          </Button>
+        </NavbarItem>
+        <NavbarItem>
+          <Button as={Link} variant="light" href="/surveys">
+            Surveys
           </Button>
         </NavbarItem>
       </NavbarContent>

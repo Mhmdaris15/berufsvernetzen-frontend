@@ -1,6 +1,6 @@
 import React from 'react'
 import ArisPhoto from "@/public/Profile Picture Aris.jpg";
-import MilaPhoto from "@/public/mila-photo.jpeg";
+import MilaPhoto from "@/public/mila-photo-2-cropped.jpeg";
 import MarvinPhoto from "@/public/marvin-photo.jpeg";
 import Image from 'next/image';
 import Link from 'next/link';

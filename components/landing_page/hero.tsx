@@ -79,44 +79,6 @@ export default function Hero() {
                 <Button onPress={onOpen} color="primary" variant="solid">
                   Get Started
                 </Button>
-                <Modal
-                  isOpen={isOpen}
-                  placement="center"
-                  onOpenChange={onOpenChange}
-                >
-                  <ModalContent>
-                    {(onClose) => (
-                      <>
-                        <ModalHeader className="flex flex-col gap-1">
-                          Start using NextUI
-                        </ModalHeader>
-                        <ModalBody>
-                          <p>
-                            NextUI it&apos;s a high customizable component
-                            library to build faster, beautiful, and more
-                            accessible NextJs applications.
-                          </p>
-                        </ModalBody>
-                        <ModalFooter>
-                          <Button
-                            color="danger"
-                            variant="flat"
-                            onPress={onClose}
-                          >
-                            Close
-                          </Button>
-                          <Button
-                            color="primary"
-                            variant="solid"
-                            onPress={onClose}
-                          >
-                            Action
-                          </Button>
-                        </ModalFooter>
-                      </>
-                    )}
-                  </ModalContent>
-                </Modal>
               </motion.div>
             </div>
           </motion.div>
