@@ -1,3 +1,6 @@
+import { Input } from "@nextui-org/react";
+import { title } from "process";
+
 export const json = {
   title: "Study Tracer Form",
   logoPosition: "right",
@@ -42,6 +45,10 @@ export const json = {
               title: "What is your department?",
               choices: [
                 {
+                  value: "bisnis-kontruksi-dan-properti",
+                  text: "Bisnis Kontruksi dan Properti (Construction and Property Business)",
+                },
+                {
                   value: "desain-pemodelan-informasi-bangunan",
                   text: "Desain Pemodelan Informasi Bangunan (Building Information Modeling Design)",
                 },
@@ -83,8 +90,8 @@ export const json = {
               validators: [
                 {
                   type: "regex",
-                  text: "Your SSN must be a 16-digit number",
-                  regex: "^d{16}$",
+                  text: "Your NIS must be a 16-digit number",
+                  regex: "^[0-9]{16}$",
                 },
               ],
               maxLength: 16,
@@ -102,21 +109,10 @@ export const json = {
               name: "graduation-year",
               title: "Year of graduation",
             },
-          ],
-        },
-      ],
-      title: "Alumni Information",
-    },
-    {
-      name: "Health history",
-      elements: [
-        {
-          type: "panel",
-          name: "health-history",
-          elements: [
             {
               type: "panel",
-              name: "smoking",
+              name: "status-after-graduation",
+              title: "Activity after graduation",
               elements: [
                 {
                   type: "radiogroup",
@@ -144,623 +140,773 @@ export const json = {
                   ],
                 },
               ],
+
+            }
+          ],
+        },
+      ],
+      title: "Alumni Information",
+    },   
+    {
+      name: "current-company",
+      elements: [
+        {
+          type: "panel",
+          name: "current-company",
+          elements: [
+            {
+              type: "panel",
+              name: "company-name",
+              elements: [
+                {
+                  type: "text",
+                  name: "company-name",
+                  title: "Company Name",
+                  requiredErrorText: "Please enter your company name.",
+                  validators: [
+                    {
+                      type: "text",
+                      text: "Please enter your company name.",
+                    },
+                  ],
+                },
+                
+             
+            {
+              type: "dropdown",
+              name: "industry-sector",
+              title: "Industry Sector",
+              choices: [
+                {
+                  value: "agriculture",
+                  text: "Sesuai kompetensi Pertanian dan Pertenakan",
+                },
+                {
+                  value: "forestry",
+                  text: "Sesuai kompetensi Kehutanan dan Perikanan",
+                },
+                {
+                  value: "mining",
+                  text: "Sesuai kompetensi Pertambangan dan Energi",
+                },
+                {
+                  value: "construction",
+                  text: "Sesuai kompetensi Konstruksi dan Bangunan",
+                },
+                {
+                  value: "electricity",
+                  text: "Sesuai kompetensi Listrik dan Gas",
+                },
+                {
+                  value: "marketing",
+                  text: "Sesuai kompetensi Perdagangan, hotel dan restoran",
+                },
+                {
+                  value: "transportation",
+                  text: "Sesuai kompetensi Transportasi dan Komunikasi",
+                },
+                {
+                  value: "finance",
+                  text: "Sesuai kompetensi Keuangan, real estate dan jasa perusahaan",
+                },
+                {
+                  value:"other",
+                  text: "Lainnya"
+                }
+              ],
             },
             {
               type: "comment",
-              name: "other-health-conditions",
-              title: "Do you have other health conditions?",
+              name: "other-industry-sector",
+              title: "Please specify",
               maxLength: 300,
+              visibleIf: "{Industry Sector} = 'other'",
+            },
+            {
+              type: "text",
+              name: "Address",
+              title: "Address",
+              requiredErrorText: "Please enter your company address.",
+              validators: [
+                {
+                  type: "text",
+                  text: "Please enter your company address.",
+                },
+              ],
             },
           ],
         },
+           {
+            type: "dropdown",
+            name: "position",
+            title: "Position",
+            choices: [
+              {
+                value: "accounting",
+                text: "Akuntan",
+              },
+              {
+                value: "cashier",
+                text: "Kasir",
+              },
+              {
+                value: "tour Guide",
+                text: "Pemandu Wisata",
+              },
+              {
+                value: "technician",
+                text: "Teknisi",
+              },
+              {
+                value: "mechanic",
+                text: "Mekanik",
+              },
+              {
+                value: "machine Operator",
+                text: "Operator Mesin",
+              },
+              {
+                value: "other",
+                text: "Other",
+              },
+            ],
+           },
+           {
+            type: "comment",
+            name: "other-position",
+            title: "Please specify",
+            maxLength: 100,
+            visibleIf: "{Position} = 'other'",
+          },
+            {
+              type: "dropdown",
+              name: "employment-status",
+              title: "Employment Status",
+              choices: [
+                {
+                  value: "permanent",
+                  text: "Karyawan Tetap",
+                },
+                {
+                  value: "contract",
+                  text: "Karyawan Kontrak",
+                },
+                {
+                  value: "outsource",
+                  text: "Outsourcing",
+                },
+                {
+                  value: "daily-freelance",
+                  text: "Tenaga Lepas",
+                },
+                {
+                  value:  "freelance",
+                  text: "Bekerja tanpa ikatan kontrak",
+                },
+                {
+                  value: "other",
+                  text: "Other",
+                },
+
+              ],
+
+            },
+            {
+              type: "comment",
+              name: "other-employment-status",
+              title: "Please specify",
+              maxLength: 100,
+              visibleIf: "{employment-status} = 'other'",
+            },
+            {
+              type: "text",
+              name: "amount-of-salary-and-allownce",
+              title: "Amount of Salary and Allowance",
+              requiredErrorText: "Please enter your amount of salary and allowance.",
+              validators: [
+                {
+                  type: "numeric",
+                  text: "Please enter your amount of salary and allowance.",
+                },
+              ],
+            },
+            {
+              type: "radiogroup",
+              name: "opinion-of-the-field-of-study",
+              title: "Opinion of the field of study",
+              choices: [
+                {
+                  value: "useful",
+                  text: "Sangat berguna",
+                },
+                {
+                  value: "quite-useful",
+                  text: "Cukup berguna",
+                },
+                {
+                  value: "less-useful",
+                  text: "Kurang berguna",
+                },
+                {
+                  value: "not-useful",
+                  text: "Tidak berguna",
+                },
+              ],
+              colCount: 1,
+            },
+            {
+              type: "radiogroup",
+              name: "first-job",
+              title: "Is this your first job?",
+              choices: [
+                {
+                  value: "yes",
+                  text: "Yes",
+                },
+                {
+                  value: "no",
+                  text: "No",
+                },
+              ],
+              colCount: 1,
+            },
+            {
+              type: "panel",
+              name: "when-did-you-get-your-first-job",
+              title: "When did you get your first job?",
+              elements: [
+                {
+                  type: "dropdown",
+                  name: "month",
+                  title: "Month",
+                  choices: [
+                    {
+                      value: "january",
+                      text: "January",
+                    },
+                    {
+                      value: "february",
+                      text: "February",
+                    },
+                    {
+                      value: "march",
+                      text: "March",
+                    },
+                    {
+                      value: "april",
+                      text: "April",
+                    },
+                    {
+                      value: "may",
+                      text: "May",
+                    },
+                    {
+                      value: "june",
+                      text: "June",
+                    },
+                    {
+                      value: "july",
+                      text: "July",
+                    },
+                    {
+                      value: "august",
+                      text: "August",
+                    },
+                    {
+                      value: "september",
+                      text: "September",
+                    },
+                    {
+                      value: "october",
+                      text: "October",
+                    },
+                    {
+                      value: "november",
+                      text: "November",
+                    },
+                    {
+                      value: "december",
+                      text: "December",
+                    },
+                  ],
+                },
+                {
+                  type: "text",
+                  name: "year",
+                  title: "Year",
+                  requiredErrorText: "Please enter the year you got your first job.",
+                  validators: [
+                    {
+                      type: "numeric",
+                      text: "Please enter the year you got your first job.",
+                    },
+                  ],
+                },
+              ],
+            },
+            {
+              type: "radiogroup",
+              name: "salary-meet-the-minimum-wage",
+              title: "Does your salary meet the minimum wage?",
+              choices: [
+                {
+                  value: "yes",
+                  text: "Yes",
+                },
+                {
+                  value: "no",
+                  text: "No",
+                },
+              ],
+              colCount: 1,
+            }
+
+          ],
+        },
       ],
-      title: "Health history",
+      title: "Work Information",
+      visibleIf: "{status} = 'working'",
     },
     {
-      name: "Social history",
+      name: "Entrepreneur Information",
       elements: [
         {
-          type: "panel",
-          name: "social-history",
-          elements: [
-            {
-              type: "panel",
-              name: "smoking",
-              elements: [
-                {
-                  type: "radiogroup",
-                  name: "cigarettes",
-                  title: "Do you smoke cigarettes?",
-                  choices: [
-                    {
-                      value: "never",
-                      text: "Never",
-                    },
-                    {
-                      value: "yes",
-                      text: "Yes",
-                    },
-                    {
-                      value: "quit",
-                      text: "Quit",
-                    },
-                  ],
-                },
-                {
-                  type: "text",
-                  name: "packs-a-day",
-                  visibleIf: "{cigarettes} = 'yes'",
-                  title: "How many packs a day?",
-                  inputType: "number",
-                  min: 0,
-                },
-                {
-                  type: "panel",
-                  name: "smoking-history",
-                  elements: [
-                    {
-                      type: "text",
-                      name: "date-quit",
-                      title: "Date quit",
-                      titleLocation: "left",
-                      inputType: "date",
-                      maxValueExpression: "today()",
-                    },
-                    {
-                      type: "text",
-                      name: "years-smoked",
-                      title: "Years smoked",
-                      titleLocation: "left",
-                      inputType: "number",
-                      min: 0,
-                    },
-                  ],
-                  visibleIf: "{cigarettes} = 'quit'",
-                },
-                {
-                  type: "boolean",
-                  name: "vape",
-                  title: "Do you vape (e-cigarettes)?",
-                },
-              ],
-            },
-            {
-              type: "panel",
-              name: "alcohol-use-history",
-              elements: [
-                {
-                  type: "boolean",
-                  name: "alcohol",
-                  title: "Do you drink alcohol?",
-                },
-                {
-                  type: "text",
-                  name: "drinks-per-week",
-                  visibleIf: "{alcohol} = true",
-                  title: "How many drinks per week?",
-                },
-              ],
-              startWithNewLine: false,
-            },
-            {
-              type: "panel",
-              name: "drug-use-history",
-              elements: [
-                {
-                  type: "checkbox",
-                  name: "recreational-drugs",
-                  title: "Do you use recreational drugs?",
-                  choices: [
-                    {
-                      value: "rarely",
-                      text: "Rarely",
-                    },
-                    {
-                      value: "marijuana",
-                      text: "Marijuana",
-                    },
-                    {
-                      value: "cocaine",
-                      text: "Cocaine",
-                    },
-                    {
-                      value: "opioids",
-                      text: "Opioids",
-                    },
-                  ],
-                  showOtherItem: true,
-                  showNoneItem: true,
-                  otherPlaceholder: "Please specify... ",
-                  noneText: "Never",
-                  otherText: "Other",
-                  colCount: 3,
-                },
-                {
-                  type: "text",
-                  name: "drug-use-times-per-month",
-                  visibleIf:
-                    "{recreational-drugs} anyof ['rarely', 'marijuana', 'cocaine', 'opioids', 'other']",
-                  title: "How many times per month",
-                  description:
-                    "If you take different types of drugs, please specify the frequency of use for each in a 'drug - # times/month' format.",
-                },
-              ],
-            },
-            {
-              type: "panel",
-              name: "personal-info",
-              elements: [
-                {
-                  type: "dropdown",
-                  name: "education",
-                  title: "What is your highest level of education completed?",
-                  choices: [
-                    {
-                      value: "high-school",
-                      text: "High School",
-                    },
-                    {
-                      value: "trade-school",
-                      text: "Trade School",
-                    },
-                    {
-                      value: "college",
-                      text: "College",
-                    },
-                    {
-                      value: "post-graduate",
-                      text: "Post-graduate degree(s)",
-                    },
-                  ],
-                },
-                {
-                  type: "dropdown",
-                  name: "marital-status",
-                  title: "What is your marital status?",
-                  choices: [
-                    {
-                      value: "married",
-                      text: "Married",
-                    },
-                    {
-                      value: "partnership",
-                      text: "Partnership",
-                    },
-                    {
-                      value: "divorced",
-                      text: "Divorced",
-                    },
-                    {
-                      value: "separated",
-                      text: "Separated",
-                    },
-                    {
-                      value: "single",
-                      text: "Single",
-                    },
-                    {
-                      value: "widow",
-                      text: "Widow(er)",
-                    },
-                  ],
-                },
-                {
-                  type: "panel",
-                  name: "sexual-life",
-                  elements: [
-                    {
-                      type: "boolean",
-                      name: "sexually-active",
-                      title: "Are you sexually active?",
-                    },
-                    {
-                      type: "text",
-                      name: "sexual-partners-number",
-                      title: "How many sexual partners do you have?",
-                      inputType: "number",
-                      min: 0,
-                    },
-                    {
-                      type: "radiogroup",
-                      name: "sexual-partners-gender",
-                      titleLocation: "hidden",
-                      choices: [
-                        {
-                          value: "men",
-                          text: "Men",
-                        },
-                        {
-                          value: "women",
-                          text: "Women",
-                        },
-                        {
-                          value: "both",
-                          text: "Both",
-                        },
-                      ],
-                      colCount: 3,
-                    },
-                    {
-                      type: "radiogroup",
-                      name: "contraception",
-                      title: "Do you use contraception?",
-                      showCommentArea: true,
-                      commentText: "If yes, what method?",
-                      choices: [
-                        {
-                          value: "yes",
-                          text: "Yes",
-                        },
-                        {
-                          value: "no",
-                          text: "No",
-                        },
-                      ],
-                    },
-                  ],
-                },
-              ],
-            },
-            {
-              type: "panel",
-              name: "employment-exercises-children",
-              elements: [
-                {
-                  type: "radiogroup",
-                  name: "employment",
-                  title: "Are you employed?",
-                  showCommentArea: true,
-                  commentText: "Type of work",
-                  choices: [
-                    {
-                      value: "yes",
-                      text: "Yes",
-                    },
-                    {
-                      value: "no",
-                      text: "No",
-                    },
-                    {
-                      value: "retired",
-                      text: "Retired",
-                    },
-                  ],
-                  colCount: 3,
-                },
-                {
-                  type: "panel",
-                  name: "physical-activity",
-                  elements: [
-                    {
-                      type: "radiogroup",
-                      name: "do-exercise",
-                      title: "Do you exercise?",
-                      choices: [
-                        {
-                          value: "yes",
-                          text: "Yes",
-                        },
-                        {
-                          value: "no",
-                          text: "No",
-                        },
-                      ],
-                      colCount: 2,
-                    },
-                    {
-                      type: "multipletext",
-                      name: "activities",
-                      visibleIf: "{do-exercise} = 'yes'",
-                      titleLocation: "hidden",
-                      items: [
-                        {
-                          name: "activity-type",
-                          title: "Type of activity",
-                        },
-                        {
-                          name: "activity-frequency",
-                          title: "How often",
-                        },
-                        {
-                          name: "activity-duration",
-                          title: "How long per activity",
-                        },
-                      ],
-                    },
-                  ],
-                },
-                {
-                  type: "panel",
-                  name: "children",
-                  elements: [
-                    {
-                      type: "boolean",
-                      name: "have-children",
-                      title: "Do you have children?",
-                    },
-                    {
-                      type: "multipletext",
-                      name: "children-ages",
-                      visibleIf: "{have-children} = true",
-                      titleLocation: "hidden",
-                      items: [
-                        {
-                          name: "children-number",
-                          title: "# of children",
-                        },
-                        {
-                          name: "ages",
-                          title: "Their ages",
-                        },
-                      ],
-                    },
-                  ],
-                },
-              ],
-              startWithNewLine: false,
-            },
-          ],
+        type: "panel",
+        name: "entrepreneur-information",
+        elements: [
+          {
+            type: "text",
+            name: "product-or-service-offered",
+            title: "Product or Service Offered",
+            requiredErrorText: "Please enter the product or service you offer.",
+            validators: [
+              {
+                type: "text",
+                text: "Please enter the product or service you offer.",
+              },
+            ],
+          },
+          {
+            type: "panel",
+            name: "average-profit",
+            title: "Average Profit",
+            elements: [
+              {
+                type: "text",
+                name: "amount-of-profit",
+                title: "Amount of profit in IDR",
+                requiredErrorText: "Please enter your amount of profit.",
+                validators: [
+                  {
+                    type: "numeric",
+                    text: "Please enter your amount of profit.",
+                  },
+                ],
+              },
+              {
+                type: "radiogroup",
+                name: "unit-of-profit",
+                title: "Unit of profit",
+                choices: [
+                  {
+                    value: "month",
+                    text: "Perbulan",
+                  },
+                  {
+                    value: "week",
+                    text: "Perminggu",
+                  },
+                  {
+                    value: "day",
+                    text: "Perhari",
+                  },
+                ],
+                colCount: 1,
+              }
+             
+            ],
+
+          },
+          {
+            type: 'panel',
+            name: 'when-did-you-start-your-business',
+            title: 'When did you start your business?',
+            elements: [
+              {
+                type: 'dropdown',
+                name: 'month',
+                title: 'Month',
+                choices: [
+                  {
+                    value: 'january',
+                    text: 'January',
+                  },
+                  {
+                    value: 'february',
+                    text: 'February',
+                  },
+                  {
+                    value: 'march',
+                    text: 'March',
+                  },
+                  {
+                    value: 'april',
+                    text: 'April',
+                  },
+                  {
+                    value: 'may',
+                    text: 'May',
+                  },
+                  {
+                    value: 'june',
+                    text: 'June',
+                  },
+                  {
+                    value: 'july',
+                    text: 'July',
+                  },
+                  {
+                    value: 'august',
+                    text: 'August',
+                  },
+                  {
+                    value: 'september',
+                    text: 'September',
+                  },
+                  {
+                    value: 'october',
+                    text: 'October',
+                  },
+                  {
+                    value: 'november',
+                    text: 'November',
+                  },
+                  {
+                    value: 'december',
+                    text: 'December',
+                  },
+                ],
+              },
+              {
+                type: 'text',
+                name: 'year',
+                title: 'Year',
+                requiredErrorText: 'Please enter the year you started your business.',
+                validators: [
+                  {
+                    type: 'numeric',
+                    text: 'Please enter the year you started your business.',
+                  },
+                ],
+              },
+            ],
+          },
+        ],
         },
+
       ],
-      title: "Social history",
+      title: "Entrepreneur Information",
+      visibleIf: "{status} = 'entrepreneur'",
     },
     {
-      name: "Surgical history / recent hospitalizations",
+      name: "Study Bachelor Information",
+     elements: [
+      {
+      type: "panel",
+      name: "study-bachelor-information",
       elements: [
+        {
+          type: "dropdown",
+          name: "education-level",
+          title: "Education Level",
+          choices: [
+            {
+              value: "diploma1/2",
+              text: "Diploma1/2",
+            },
+            {
+              value: "diploma3",
+              text: "Diploma3",
+            },
+            {
+              value: "diploma4",
+              text: "Diploma4",
+            },
+            {
+              value: "bachelor",
+              text: "S1",
+            },
+            {
+              value: "master",
+              text: "S2",
+            },
+            {
+              value: "other",
+              text: "Other",
+            },
+          ],
+
+        },
         {
           type: "comment",
-          name: "surgery-description",
-          title: "Date and type of surgery / procedure",
-        },
-      ],
-      title: "Surgical history / recent hospitalizations",
-    },
-    {
-      name: "Family history",
-      elements: [
-        {
-          type: "matrixdynamic",
-          name: "family-history",
-          titleLocation: "hidden",
-          columns: [
-            {
-              name: "relation",
-              title: "Relation",
-            },
-            {
-              name: "health-conditions",
-              title: "Health conditions",
-            },
-            {
-              name: "cancer-history",
-              title: "Family history of cancer",
-            },
-          ],
-          cellType: "text",
-        },
-      ],
-      title: "Family history",
-    },
-    {
-      name: "Preventive care",
-      elements: [
-        {
-          type: "panel",
-          name: "preventive-care",
-          elements: [
-            {
-              type: "panel",
-              name: "recent-shots-panel",
-              elements: [
-                {
-                  type: "matrixdropdown",
-                  name: "recent-shots",
-                  title: "Recent shots from a doctor or pharmacist",
-                  columns: [
-                    {
-                      name: "date",
-                      title: "Date",
-                    },
-                    {
-                      name: "place",
-                      title: "Place",
-                    },
-                  ],
-                  cellType: "text",
-                  rows: [
-                    {
-                      value: "flu",
-                      text: "Flu",
-                    },
-                    {
-                      value: "shingles",
-                      text: "Shingles",
-                    },
-                    {
-                      value: "pneumonia",
-                      text: "Pneumonia",
-                    },
-                    {
-                      value: "tetanus",
-                      text: "Tetanus",
-                    },
-                    {
-                      value: "other",
-                      text: "Other",
-                    },
-                  ],
-                },
-              ],
-            },
-            {
-              type: "panel",
-              name: "recent-tests-panel",
-              elements: [
-                {
-                  type: "matrixdropdown",
-                  name: "recent-tests",
-                  title: "Recent tests or procedures",
-                  columns: [
-                    {
-                      name: "date",
-                      title: "Date",
-                    },
-                    {
-                      name: "place",
-                      title: "Place",
-                    },
-                  ],
-                  cellType: "text",
-                  rows: [
-                    {
-                      value: "colonoscopy",
-                      text: "Colonoscopy",
-                    },
-                    {
-                      value: "cologuard",
-                      text: "Cologuard",
-                    },
-                    {
-                      value: "mammogram",
-                      text: "Mammogram",
-                    },
-                    {
-                      value: "pap",
-                      text: "PAP",
-                    },
-                    {
-                      value: "other",
-                      text: "Other",
-                    },
-                  ],
-                },
-              ],
-              startWithNewLine: false,
-            },
-            {
-              type: "panel",
-              name: "specialists-panel",
-              elements: [
-                {
-                  type: "matrixdynamic",
-                  name: "specialists",
-                  title: "Specialists",
-                  columns: [
-                    {
-                      name: "provider",
-                      title: "Provider's first and last name",
-                    },
-                    {
-                      name: "speciality",
-                      title: "Speciality",
-                    },
-                    {
-                      name: "city",
-                      title: "Town/City",
-                    },
-                  ],
-                  cellType: "text",
-                  rowCount: 1,
-                },
-              ],
-            },
-            {
-              type: "panel",
-              name: "medications-and-allergies",
-              elements: [
-                {
-                  type: "multipletext",
-                  name: "medications",
-                  title: "Medications",
-                  items: [
-                    {
-                      name: "medication-name",
-                      title: "Name",
-                    },
-                    {
-                      name: "medication-dose",
-                      title: "Dose",
-                    },
-                    {
-                      name: "medication-times-per-day",
-                      title: "Times per day",
-                    },
-                  ],
-                },
-                {
-                  type: "multipletext",
-                  name: "allergies",
-                  startWithNewLine: false,
-                  title: "Allergies",
-                  items: [
-                    {
-                      name: "allergy-type",
-                      title: "Type",
-                    },
-                    {
-                      name: "allergy-reaction",
-                      title: "Reaction",
-                    },
-                  ],
-                },
-              ],
-            },
-          ],
-        },
-      ],
-      title: "Preventive care",
-    },
-    {
-      name: "Symptoms",
-      elements: [
-        {
-          type: "tagbox",
-          name: "symptoms",
-          title:
-            "Please select any symptoms you have now or have had in the past month.",
-          choices: [
-            "Fever",
-            "Chills",
-            "Feeling poorly",
-            "Feeling tired",
-            "Weight gain",
-            "Weight loss",
-            "Chest pain",
-            "Heart pounding",
-            "Fast pulse",
-            "Slow pulse",
-            "Leg pain with exercise",
-            "Leg swelling",
-            "Joint pain",
-            "Neck pain",
-            "Joint swelling",
-            "Joint stiffness",
-            "Muscle aches",
-            "Back pain",
-            "Sores",
-            "Rash",
-            "Itching",
-            "Change in a mole",
-            "Unusual growth/spot",
-          ],
-        },
-        {
-          type: "signaturepad",
-          name: "signature",
-          title: "Signature:",
-          titleLocation: "left",
+          name: "other-education-level",
+          title: "Please specify",
+          maxLength: 100,
+          visibleIf: "{education-level} = 'other'",
         },
         {
           type: "text",
-          name: "current-date",
-          startWithNewLine: false,
-          title: "Today's date:",
-          titleLocation: "left",
-          defaultValueExpression: "today()",
-          inputType: "date",
+          name: "institution",
+          title: "Institution Name",
+          requiredErrorText: "Please enter the name of your institution.",
+          validators: [
+            {
+              type: "text",
+              text: "Please enter the name of your institution.",
+            },
+          ],
+        },
+        {
+          type: "text",
+          name: "Program-of-Study",
+          title: "Program of Study",
+          requiredErrorText: "Please enter your program study.",
+          validators: [
+            {
+              type: "text",
+              text: "Please enter your program study.",
+            },
+          ],
+        },
+      ]
+      }
+      ],
+      title: "Study Bachelor Information",
+      visibleIf: "{status} = 'studying'",
+    },
+    {
+      name: "Unemployed Information",
+      elements: [
+        {
+          type: "panel",
+          name: "unemployed-information",
+          elements: [
+            {
+              type: "dropdown",
+              name: "worked-before-or-self-employed",
+              title: "Have you ever worked before or been self-employed?",
+              choices: [
+                {
+                  value: "have-worked",
+                  text: "Ya, pernah bekerja",
+                },
+                {
+                  value: "have-self-employed",
+                  text: "Ya, pernah berwirausaha",
+                },
+                {
+                  value: "never",
+                  text: "Tidak",
+                },
+              ],
+
+            },
+            {
+              type: "panel",
+              name: "time-of-worke-or-self-employed",
+              title: "When did you work or self-employed?",
+              elements: [
+                {
+                  type: "dropdown",
+                  name: "month",
+                  title: "Month",
+                  choices: [
+                    {
+                      value: "january",
+                      text: "January",
+                    },
+                    {
+                      value: "february",
+                      text: "February",
+                    },
+                    {
+                      value: "march",
+                      text: "March",
+                    },
+                    {
+                      value: "april",
+                      text: "April",
+                    },
+                    {
+                      value: "may",
+                      text: "May",
+                    },
+                    {
+                      value: "june",
+                      text: "June",
+                    },
+                    {
+                      value: "july",
+                      text: "July",
+                    },
+                    {
+                      value: "august",
+                      text: "August",
+                    },
+                    {
+                      value: "september",
+                      text: "September",
+                    },
+                    {
+                      value: "october",
+                      text: "October",
+                    },
+                    {
+                      value: "november",
+                      text: "November",
+                    },
+                    {
+                      value: "december",
+                      text: "December",
+                    },
+                  ],
+                },
+                {
+                  type: "text",
+                  name: "year",
+                  title: "Year",
+                  requiredErrorText: "Please enter the year you worked or self-employed.",
+                  validators: [
+                    {
+                      type: "numeric",
+                      text: "Please enter the year you worked or self-employed.",
+                    },
+                  ],
+                },
+              ],
+            }, 
+            {
+              type: "panel",
+              name: "time-of-unemployed",
+              title: "When did you become unemployed?",
+              elements: [
+                {
+                  type: "dropdown",
+                  name: "month",
+                  title: "Month",
+                  choices: [
+                    {
+                      value: "january",
+                      text: "January",
+                    },
+                    {
+                      value: "february",
+                      text: "February",
+                    },
+                    {
+                      value: "march",
+                      text: "March",
+                    },
+                    {
+                      value: "april",
+                      text: "April",
+                    },
+                    {
+                      value: "may",
+                      text: "May",
+                    },
+                    {
+                      value: "june",
+                      text: "June",
+                    },
+                    {
+                      value: "july",
+                      text: "July",
+                    },
+                    {
+                      value: "august",
+                      text: "August",
+                    },
+                    {
+                      value: "september",
+                      text: "September",
+                    },
+                    {
+                      value: "october",
+                      text: "October",
+                    },
+                    {
+                      value: "november",
+                      text: "November",
+                    },
+                    {
+                      value: "december",
+                      text: "December",
+                    },
+                  ],
+                },
+                {
+                  type: "text",
+                  name: "year",
+                  title: "Year",
+                  requiredErrorText: "Please enter the year you became unemployed.",
+                  validators: [
+                    {
+                      type: "numeric",
+                      text: "Please enter the year you became unemployed.",
+                    },
+                  ],
+                },
+              ],
+            }
+          ],
         },
       ],
-      title: "Symptoms",
+      title: "Unemployed Information",
+      visibleIf: "{status} = 'unemployed'",
+    },
+    {
+      name: "Vocational School Performance",
+      elements: [
+        {
+          type: "panel",
+          name: "vocational-school-performance",
+          elements: [
+            {
+              type: "radiogroup",
+              name: "quality-of-education",
+              title: "How do you rate the quality of education at vocational school?",
+              choices: [
+                {
+                  "value": "excellent",
+                  "text": "Sangat Puas",
+                },
+                {
+                  "value": "good",
+                  "text": "Puas",
+                },
+                {
+                  "value": "not-satisfied",
+                  "text": "Tidak Puas",
+                },
+                {
+                  "value": "poor",
+                  "text": "Sangat Tidak Puas",
+                },
+              ],
+            },
+            {
+              type: "text",
+              name: "improvement-suggestions",
+              title: "Aspects that most need to be improved",
+              requiredErrorText: "Please enter the aspects that most need to be improved.",
+              inputType: "text",
+              maxLength: 300,
+            }
+          ],
+        }
+      ],
+      title: "Vocational School Performance",
     },
   ],
   showQuestionNumbers: "off",
