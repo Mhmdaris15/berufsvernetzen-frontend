@@ -1,8 +1,14 @@
 "use client";
 import { motion } from "framer-motion";
 import { Tooltip } from "@nextui-org/tooltip";
+import { FaGolang } from "react-icons/fa6";
+import { SiMeilisearch } from "react-icons/si";
+import { SiMongodb } from "react-icons/si";
+import { SiFirebase } from "react-icons/si";
+import { SiSelenium } from "react-icons/si";
+import { FaLinkedin } from "react-icons/fa";
 
-export default function Partners() {
+export default function Techs() {
   return (
     <section className="max-w-screen-md mx-auto px-4 py-24 gap-12 md:px-8 flex flex-col justify-center items-center">
       <motion.h2
@@ -15,7 +21,7 @@ export default function Partners() {
         transition={{ duration: 0.5 }}
         className="text-2xl font-bold sm:text-3xl bg-gradient-to-b from-foreground to-foreground/70 text-transparent bg-clip-text"
       >
-        Our Partners
+        Our Technologies
       </motion.h2>
       <div className="w-full grid grid-cols-3 sm:grid-cols-6 grid-rows-3 sm:grid-rows-1 gap-5 place-items-center">
         <Tooltip content="NextJs">
@@ -123,6 +129,99 @@ export default function Partners() {
           >
             <path d="M4 0h16v8h-8zM4 8h8l8 8H4zM4 16h8v8z" />
           </motion.svg>
+        </Tooltip>
+        <Tooltip content="Golang">
+          <motion.span
+            initial={{ y: 5, opacity: 0 }}
+            whileInView={{
+              y: 0,
+              opacity: 1,
+            }}
+            viewport={{ once: true }}
+            transition={{ duration: 1, delay: 1.2 }}
+          >
+            <FaGolang 
+            size={100}
+            />
+          </motion.span>
+        </Tooltip>
+        <Tooltip content="Meilisearch">
+          <motion.span
+            initial={{ y: 5, opacity: 0 }}
+            whileInView={{
+              y: 0,
+              opacity: 1,
+            }}
+            viewport={{ once: true }}
+            transition={{ duration: 1, delay: 1.2 }}
+          >
+            <SiMeilisearch
+            size={90}
+            />
+          </motion.span>
+        </Tooltip>
+        <Tooltip content="MongoDB">
+          <motion.span
+            initial={{ y: 5, opacity: 0 }}
+            whileInView={{
+              y: 0,
+              opacity: 1,
+            }}
+            viewport={{ once: true }}
+            transition={{ duration: 1, delay: 1.4 }}
+          >
+            <SiMongodb
+            size={80}
+            />
+          </motion.span>
+        </Tooltip>
+        <Tooltip content="Selenium"
+        >
+          <motion.span
+            initial={{ y: 5, opacity: 0 }}
+            whileInView={{
+              y: 0,
+              opacity: 1,
+            }}
+            viewport={{ once: true }}
+            transition={{ duration: 1, delay: 1.6 }}
+          >
+            <SiSelenium
+            size={80}
+            />
+          </motion.span>
+        </Tooltip>
+        <Tooltip content="Firebase"
+        >
+          <motion.span
+            initial={{ y: 5, opacity: 0 }}
+            whileInView={{
+              y: 0,
+              opacity: 1,
+            }}
+            viewport={{ once: true }}
+            transition={{ duration: 1, delay: 1.8 }}
+          >
+            <SiFirebase
+            size={80}
+            />
+          </motion.span>
+        </Tooltip>
+        <Tooltip content="LinkedIn"
+        >
+          <motion.span
+            initial={{ y: 5, opacity: 0 }}
+            whileInView={{
+              y: 0,
+              opacity: 1,
+            }}
+            viewport={{ once: true }}
+            transition={{ duration: 1, delay: 2 }}
+          >
+            <FaLinkedin
+            size={80}
+            />
+          </motion.span>
         </Tooltip>
       </div>
     </section>
