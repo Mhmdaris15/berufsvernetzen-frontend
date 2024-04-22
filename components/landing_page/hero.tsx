@@ -10,7 +10,9 @@ import {
   ModalBody,
   ModalFooter,
 } from "@nextui-org/modal";
+import Logo from "@/public/Berufsvernetzen_Icon-removebg-preview.png";
 import { useDisclosure } from "@nextui-org/use-disclosure";
+import Image from "next/image";
 
 export default function Hero() {
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
@@ -18,6 +20,13 @@ export default function Hero() {
     <div className="relative justify-center items-center">
       <section>
         <div className="max-w-screen-xl mx-auto px-4 py-28 gap-12 md:px-8 flex flex-col justify-center items-center">
+          <Image
+            src={Logo}
+            alt="Berufsvernetzen Logo"
+            width={170}
+            height={170}
+            className="rounded-lg"
+          />
           <motion.div
             initial={{ y: 5, opacity: 0 }}
             animate={{

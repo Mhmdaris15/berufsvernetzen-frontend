@@ -2,10 +2,11 @@ import type { NextPage } from "next";
 import { Content } from "@/components/home/content";
 import NavBar from "@/components/landing_page/navbar";
 import Hero from "@/components/landing_page/hero";
-import Partners from "@/components/landing_page/partners";
 import Pricing from "@/components/landing_page/pricing";
 import Faq from "@/components/landing_page/faq";
 import Footer from "@/components/landing_page/footer";
+import Techs from "@/components/landing_page/techs";
+import Devs from "@/components/landing_page/devs";
 
 const Home: NextPage = () => {
   return (
@@ -13,8 +14,8 @@ const Home: NextPage = () => {
       <NavBar />
       <main>
         <Hero />
-        <Partners />
-        <Pricing />
+        <Techs />
+        <Devs />
         <Faq />
       </main>
       <Footer />

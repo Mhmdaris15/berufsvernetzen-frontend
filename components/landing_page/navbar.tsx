@@ -104,11 +104,6 @@ export default function NavBar() {
         </NavbarItem>
         <NavbarItem>
           <Button as={Link} variant="light">
-            pricing
-          </Button>
-        </NavbarItem>
-        <NavbarItem>
-          <Button as={Link} variant="light">
             blog
           </Button>
         </NavbarItem>
