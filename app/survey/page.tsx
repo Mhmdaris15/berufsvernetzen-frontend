@@ -4,11 +4,13 @@ import React from "react";
 import { Model } from "survey-core";
 import { Survey } from "survey-react-ui";
 import "survey-core/defaultV2.min.css";
-import { json } from "./surveys";
-import { Chip, Select, SelectItem } from "@nextui-org/react";
+import { json } from "../../types/surveys";
 import { ContrastDark } from "survey-core/themes/contrast-dark";
+import { Chip, Select, SelectItem } from "@nextui-org/react";
 
-const SurveysPage = () => {
+type Props = {}
+
+const SurveysPage = (props: Props) => {
   const survey = new Model(json);
   const [pageNo, setPageNo] = React.useState<number>(0);
 
@@ -42,9 +44,7 @@ const SurveysPage = () => {
         </Chip>
       </div>
 
-      {survey.visiblePages.length !== 0 && (
-        <Survey currentPageNo={pageNo} model={survey} />
-      )}
+      {/* <Survey currentPageNo={pageNo} model={survey} /> */}
     </div>
   );
 };

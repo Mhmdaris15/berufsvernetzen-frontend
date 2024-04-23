@@ -1,6 +1,3 @@
-import { Input } from "@nextui-org/react";
-import { title } from "process";
-
 export const json = {
   title: "Study Tracer Form",
   logoPosition: "right",
