@@ -23,12 +23,13 @@ export default function Hero() {
           <Image
             src={Logo}
             alt="Berufsvernetzen Logo"
+            priority={true}
             width={170}
             height={170}
             className="rounded-lg"
           />
           <motion.div
-            initial={{ y: 5, opacity: 0 }}
+            initial={{ y: 10, opacity: 0.6 }}
             animate={{
               y: 0,
               opacity: 1,

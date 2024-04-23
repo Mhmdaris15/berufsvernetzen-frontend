@@ -3,7 +3,6 @@
 import React from "react";
 import LoginBackground from "@/public/login-page-background.jpg";
 import Logo from "@/public/Berufsvernetzen_Icon-removebg-preview.png";
-import Image from "next/image";
 import * as Yup from "yup";
 import { useFormik } from "formik";
 import {
@@ -15,9 +14,11 @@ import {
   Tab,
   Tabs,
 } from "@nextui-org/react";
+
 import toast from "react-hot-toast";
 import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 type Props = {};
 
@@ -235,15 +236,15 @@ function AuthPage({}: Props) {
           </Card>
         </motion.div>
       </div>
-      <div className="hidden md:flex flex-1 bg-gray-200 bg-cover bg-center relative">
+      <div className="hidden md:flex flex-1 bg-gradient-to-r from-blue-800 to-indigo-900 bg-cover bg-center relative">
         <div className="absolute inset-0 flex items-center justify-center">
         <div className="absolute inset-0 bg-black opacity-50"></div>
           <Image
             src={LoginBackground}
+            priority={true}
             alt="Login Background"
             className="object-cover object-center w-full h-full"
           />
-          {/* Add  */}
         </div>
       </div>
     </div>

@@ -110,7 +110,7 @@ export default function NavBar() {
           </Button>
         </NavbarItem>
         <NavbarItem>
-          <Button as={Link} variant="light" href="/surveys">
+          <Button as={Link} variant="light" href="https://survey.mhmdaris15.tech/">
             Surveys
           </Button>
         </NavbarItem>
@@ -120,11 +120,11 @@ export default function NavBar() {
           <Button
             as={Link}
             color="primary"
-            href="#"
+            href="/auth"
             variant="solid"
             className="hidden sm:flex"
           >
-            Get Started
+            Login / Register
           </Button>
         </NavbarItem>
         <NavbarItem>
