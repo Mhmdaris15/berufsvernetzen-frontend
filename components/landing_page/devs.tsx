@@ -37,7 +37,7 @@ const Devs = (props: Props) => {
             height={80}
             className="rounded-full mb-4"
           />
-          <h3 className={`font-semibold ${theme =="dark" ? "text-white" : "text-gray-800"}`}>Marvin Magnolya</h3>
+          <h3 className={`font-semibold ${theme =="dark" ? "text-white" : "text-gray-800"}`}>Marvin Saputra</h3>
           <p className={` ${theme =="dark" ? "text-white" : "text-gray-600"}`}>Cloud Engineer</p>
           <p className={` ${theme =="dark" ? "text-white" : "text-gray-600"}`}>PT. Boer Technology</p>
         </Link>
